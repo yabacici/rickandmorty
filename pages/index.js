@@ -25,11 +25,6 @@ export default function Home() {
                     Explore what the best animated science fiction has to offer{" "}
                     {/* <code className={styles.code}>pages/index.js</code> */}
                 </p>
-                {/* <Button>
-                    <Link href="/episodes">
-                        <a>Episodes</a>
-                    </Link>
-                </Button> */}
 
                 <div className={styles.grid}>
                     <a href="/allCharacters" className={styles.card}>

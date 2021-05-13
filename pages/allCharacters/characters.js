@@ -8,11 +8,11 @@ const Character = ({ characters }) => {
         <SimpleGrid columns={[1, 2, 3]} spacing="40px">
             {characters.map((character) => {
                 return (
-                    <div className="image-style" key={character.id}>
+                    <div className="card-style" key={character.id}>
                         <Image
                             src={character.image}
-                            width={200}
-                            height={200}
+                            width={300}
+                            height={300}
                             style={{
                                 borderStyle: "2px solid black",
                             }}
@@ -36,11 +36,11 @@ const Character = ({ characters }) => {
                             {" "}
                             Location: {character.location.name}
                         </Text>
-                        {/* 
+
                         <Text align="center">
                             {" "}
-                            Episode: {character.episode}
-                        </Text> */}
+                            air_date: {character.air_date}
+                        </Text>
                     </div>
                 );
             })}

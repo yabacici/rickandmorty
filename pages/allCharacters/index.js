@@ -33,13 +33,14 @@ export default function Home(results) {
 
     return (
         <div>
-            <h1>This is the Homepage</h1>
-            <Button>
-                <Link href="/">
-                    <a>Back to the homepage</a>
-                </Link>
-            </Button>
-
+            {/* <div className="button-area" justify="center" align="center">
+                <h1>This is the Homepage</h1>
+                <Button>
+                    <Link href="/">
+                        <a>HOMEPAGE</a>
+                    </Link>
+                </Button>
+            </div> */}
             <Flex direction="colum" justify="center" align="center">
                 <Box
                     mb={4}
@@ -47,9 +48,9 @@ export default function Home(results) {
                     justify="center"
                     align="center"
                     py={8}
-                    style={{
-                        backgroundColor: "yellow",
-                    }}
+                    // style={{
+                    //     backgroundColor: "yellow",
+                    // }}
                 >
                     <Heading
                         as="h1"
@@ -87,21 +88,34 @@ export default function Home(results) {
                         }}
                     >
                         <Stack maxWidth="350px" width="100%" isInline mb={8}>
+                            <Button>
+                                <Link href="/">
+                                    <a border="2px solid black">HOMEPAGE</a>
+                                </Link>
+                            </Button>
+                            <Button>
+                                <Link href="/allEpisodes">
+                                    <a border="2px solid black">EPISODES</a>
+                                </Link>
+                            </Button>
                             <Input
                                 placeholder="Search"
                                 value={search}
-                                border="none"
+                                border="2px solid black"
                                 onChange={(e) => setSearch(e.target.value)}
                             ></Input>
+
                             <IconButton
-                                colorScheme="blue"
+                                color="blue"
+                                bgColor="gray"
                                 arial-label="Search Database"
                                 icon={<SearchIcon />}
                                 disabled={search === ""}
                                 type="submit"
                             />
                             <IconButton
-                                colorScheme="red"
+                                color="red"
+                                bgColor="gray"
                                 arial-label="Reset Button"
                                 icon={<CloseIcon />}
                                 disabled={search === ""}
@@ -147,9 +161,9 @@ export async function getStaticProps() {
                             id
                             name
                         }
-
                         episode {
                             name
+                            episode
                             air_date
                             created
                         }

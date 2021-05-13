@@ -4,10 +4,10 @@ import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 const Episode = ({ episodes }) => {
     return (
-        <SimpleGrid columns={[1, 2, 3]} spacing="40px">
+        <SimpleGrid columns={[1, 2, 3]} spacing="50px">
             {episodes.map((episode) => {
                 return (
-                    <div key={episode.id}>
+                    <div className="card-style" key={episode.id}>
                         <Heading
                             as="h4"
                             align="center"
@@ -18,25 +18,29 @@ const Episode = ({ episodes }) => {
                         >
                             {episode.name}
                         </Heading>
+                        <div
+                            style={{
+                                backgroundColor: "gray",
+                            }}
+                        >
+                            <a href="">
+                                <Text align="center">
+                                    {" "}
+                                    episode: {episode.episode}
+                                </Text>
 
-                        {/* <Text align="center">
-                            {" "}
-                            Origin: {character.origin.name}
-                        </Text> */}
-                        {/* <Text align="center">
-                            {" "}
-                            Origin: {character.origin.name}
-                        </Text> */}
+                                <Text align="center">
+                                    {" "}
+                                    air_date: {episode.air_date}
+                                </Text>
+                                {/* <Text align="center"> id: {episode.id}</Text> */}
 
-                        {/* <Text align="center">
-                            {" "}
-                            Location: {character.location.name}
-                        </Text> */}
-                        {/* 
-                        <Text align="center">
-                            {" "}
-                            Episode: {character.episode}
-                        </Text> */}
+                                <Text align="center">
+                                    {" "}
+                                    created: {episode.created}
+                                </Text>
+                            </a>
+                        </div>
                     </div>
                 );
             })}
