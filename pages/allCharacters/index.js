@@ -29,18 +29,9 @@ export default function Home(results) {
     const [search, setSearch] = useState("");
     // 4. handling error mesages
     const toast = useToast();
-    // console.log("this is initialState: ", initialState);
 
     return (
         <div>
-            {/* <div className="button-area" justify="center" align="center">
-                <h1>This is the Homepage</h1>
-                <Button>
-                    <Link href="/">
-                        <a>HOMEPAGE</a>
-                    </Link>
-                </Button>
-            </div> */}
             <Flex direction="colum" justify="center" align="center">
                 <Box
                     mb={4}

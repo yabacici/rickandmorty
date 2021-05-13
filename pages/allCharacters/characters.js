@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-// import styles from "../styles/Home.module.css";
 import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 const Character = ({ characters }) => {
@@ -28,19 +27,19 @@ const Character = ({ characters }) => {
                             {character.name}
                         </Heading>
 
-                        <Text align="center">
+                        <Text align="center" fontFamily="bold">
                             {" "}
                             Origin: {character.origin.name}
                         </Text>
-                        <Text align="center">
+                        <Text align="center" fontFamily="bold">
                             {" "}
                             Location: {character.location.name}
                         </Text>
 
-                        <Text align="center">
+                        {/* <Text align="center">
                             {" "}
                             air_date: {character.air_date}
-                        </Text>
+                        </Text> */}
                     </div>
                 );
             })}

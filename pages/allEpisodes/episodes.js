@@ -8,6 +8,8 @@ const Episode = ({ episodes }) => {
             {episodes.map((episode) => {
                 return (
                     <div className="card-style" key={episode.id}>
+                        <Text align="center"> episode: {episode.episode}</Text>
+
                         <Heading
                             as="h4"
                             align="center"
@@ -19,27 +21,25 @@ const Episode = ({ episodes }) => {
                             {episode.name}
                         </Heading>
                         <div
-                            style={{
-                                backgroundColor: "gray",
-                            }}
+                        // style={{
+                        //     backgroundColor: "black",
+                        // }}
                         >
-                            <a href="">
-                                <Text align="center">
-                                    {" "}
-                                    episode: {episode.episode}
-                                </Text>
+                            <Text align="center" fontFamily="bold">
+                                {" "}
+                                episode: {episode.episode}
+                            </Text>
 
-                                <Text align="center">
-                                    {" "}
-                                    air_date: {episode.air_date}
-                                </Text>
-                                {/* <Text align="center"> id: {episode.id}</Text> */}
+                            <Text align="center" fontFamily="bold">
+                                {" "}
+                                air_date: {episode.air_date}
+                            </Text>
+                            {/* <Text align="center"> id: {episode.id}</Text> */}
 
-                                <Text align="center">
-                                    {" "}
-                                    created: {episode.created}
-                                </Text>
-                            </a>
+                            <Text align="center" fontFamily="bold">
+                                {" "}
+                                created: {episode.created}
+                            </Text>
                         </div>
                     </div>
                 );

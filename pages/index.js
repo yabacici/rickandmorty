@@ -26,6 +26,13 @@ export default function Home() {
                     {/* <code className={styles.code}>pages/index.js</code> */}
                 </p>
 
+                <Image
+                    src="/pic.jpg"
+                    width={160}
+                    height={110}
+                    style={{ borderRadius: "80%" }}
+                />
+
                 <div className={styles.grid}>
                     <a href="/allCharacters" className={styles.card}>
                         <h2>Characters&rarr;</h2>

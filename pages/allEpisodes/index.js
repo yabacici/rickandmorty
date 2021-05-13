@@ -3,7 +3,6 @@ import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Episode from "./episodes";
-
 import Link from "next/link";
 import {
     Heading,
@@ -21,26 +20,13 @@ import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
 
 export default function Home(results) {
     console.log("this is results: ", results);
-
-    // 1. initial State
     const initialState = results;
-    // 2. update episodes
     const [episodes, setEpisodes] = useState(initialState.episodes);
-    // 3. search episodes
     const [search, setSearch] = useState("");
-    // 4. handling error mesages
     const toast = useToast();
 
     return (
         <div>
-            {/* <div className="button-area" justify="center" align="center">
-                <Button>
-                    <Link href="/">
-                        <a border="6px solid black">></a>
-                    </Link>
-                </Button>
-            </div> */}
-
             <Flex direction="colum" justify="center" align="center">
                 <Box
                     mb={4}
@@ -48,10 +34,19 @@ export default function Home(results) {
                     justify="center"
                     align="center"
                     py={8}
-                    // style={{
-                    //     backgroundColor: "yellow",
-                    // }}
                 >
+                    {/* <Heading
+                        justify="center"
+                        align="center"
+                        as="h1"
+                        fontSize="30px"
+                        mb={8}
+                        style={{
+                            backgroundColor: "gray",
+                        }}
+                    >
+                        Rick and Morty
+                    </Heading> */}
                     <Heading
                         as="h1"
                         size="2x1"
@@ -62,16 +57,14 @@ export default function Home(results) {
                     >
                         Rick and Morty
                     </Heading>
+
                     <form
                         onSubmit={async (event) => {
                             event.preventDefault();
-                            const results = await fetch(
-                                "/api/SearchCharacters",
-                                {
-                                    method: "post",
-                                    body: search,
-                                }
-                            );
+                            const results = await fetch("/api/SearchEpisodes", {
+                                method: "post",
+                                body: search,
+                            });
                             const { episodes, error } = await results.json();
                             if (error) {
                                 toast({
@@ -136,7 +129,6 @@ export default function Home(results) {
 export async function getStaticProps() {
     const client = new ApolloClient({
         uri: "https://rickandmortyapi.com/graphql/",
-        // if there a req it will check the last time it was created
         cache: new InMemoryCache(),
     });
     const { data } = await client.query({
