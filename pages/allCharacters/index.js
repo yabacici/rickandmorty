@@ -5,7 +5,6 @@ import Image from "next/image";
 import Character from "./characters";
 import Link from "next/link";
 import FavButton from "./favButton";
-
 import {
     Heading,
     Header,

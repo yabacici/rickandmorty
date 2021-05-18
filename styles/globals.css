@@ -38,19 +38,22 @@ h1 {
 }
 
 .details-card {
-    margin-top: 100px;
-    margin-left: 400px;
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     border: 10px solid white;
     display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     align-items: center;
     background: beige;
     box-shadow: 5px 10px 25px rgb(220, 173, 234);
     border-radius: 10px;
     transition: 0.8;
     cursor: pointer;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin-top: 3rem;
+    margin-left: 15rem;
 }
 .allText {
     display: grid;

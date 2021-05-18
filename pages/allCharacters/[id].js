@@ -4,11 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import Favorite from "@material-ui/icons/Favorite";
-import IconButton from "@material-ui/core/IconButton";
-import FavButton from "./favButton";
 import {
     Header,
     Box,
@@ -40,6 +35,20 @@ export async function getServerSideProps({ query }) {
         },
     };
 }
+// export const getStaticPaths = async () => {
+//     const res = await fetch("https://rickandmortyapi.com/api/character/");
+//     const data = await res.json();
+
+//     const paths = data.map((characters) => {
+//         return {
+//             params: { id: characters.id.toString() },
+//         };
+//     });
+//     return {
+//         paths,
+//         fallback: false,
+//     };
+// };
 
 const CharacterDetail = ({ data }) => {
     console.log("the data:", data);
@@ -48,7 +57,6 @@ const CharacterDetail = ({ data }) => {
         <div className="details-card">
             <SimpleGrid columns={[1, 2]} spacing="40px">
                 <h1>Character details</h1>
-
                 <Heading
                     as="h4"
                     align="center"
@@ -59,12 +67,7 @@ const CharacterDetail = ({ data }) => {
                 >
                     {name}
                 </Heading>
-                <Image
-                    className="img-style"
-                    src={image}
-                    width={300}
-                    height={300}
-                />
+                <Image src={image} width={200} height={200} />
                 <div className="allText">
                     <ul>
                         <li>
