@@ -1,9 +1,11 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Character from "./characters";
 import Link from "next/link";
+import FavButton from "./favButton";
+
 import {
     Heading,
     Header,
@@ -17,8 +19,9 @@ import {
     useToast,
 } from "@chakra-ui/react";
 import { SearchIcon, CloseIcon } from "@chakra-ui/icons";
+import { Info } from "@material-ui/icons";
+
 export default function Home(results) {
-    console.log("this is results: ", results);
     // using initialState to reset the search that comes back from the user
     // it will be easier to rerender the page with the 1st state that we have
     // 1. initial State
@@ -29,7 +32,6 @@ export default function Home(results) {
     const [search, setSearch] = useState("");
     // 4. handling error mesages
     const toast = useToast();
-
     return (
         <div>
             <Flex direction="colum" justify="center" align="center">
@@ -39,9 +41,6 @@ export default function Home(results) {
                     justify="center"
                     align="center"
                     py={8}
-                    // style={{
-                    //     backgroundColor: "yellow",
-                    // }}
                 >
                     <Heading
                         as="h1"
@@ -79,12 +78,12 @@ export default function Home(results) {
                         }}
                     >
                         <Stack maxWidth="350px" width="100%" isInline mb={8}>
-                            <Button>
+                            <Button className="iconButton">
                                 <Link href="/">
                                     <a border="2px solid black">HOMEPAGE</a>
                                 </Link>
                             </Button>
-                            <Button>
+                            <Button className="iconButton">
                                 <Link href="/allEpisodes">
                                     <a border="2px solid black">EPISODES</a>
                                 </Link>
@@ -118,17 +117,21 @@ export default function Home(results) {
                         </Stack>
                     </form>
                     <Character characters={characters}></Character>
-                    <Button>Load more</Button>
+                    <Link
+                        href="/allCharacters/[id]"
+                        as={`/allCharacters/${characters.id}`}
+                    >
+                        <Character characters={characters}></Character>
+                    </Link>
                 </Box>
             </Flex>
         </div>
     );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(req) {
     const client = new ApolloClient({
         uri: "https://rickandmortyapi.com/graphql/",
-        // if there a req it will check the last time it was created
         cache: new InMemoryCache(),
     });
     const { data } = await client.query({
@@ -142,8 +145,8 @@ export async function getStaticProps() {
                         prev
                     }
                     results {
-                        name
                         id
+                        name
                         location {
                             id
                             name

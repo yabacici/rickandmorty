@@ -2,7 +2,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    background-color: blueviolet;
+    background-color: beige;
 
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -21,6 +21,48 @@ h1 {
     font-style: italic;
 }
 
+/* .card-style {
+    border: 10px solid white;
+} */
+
 .card-style {
     border: 10px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: beige;
+    box-shadow: 5px 10px 25px rgb(220, 173, 234);
+    border-radius: 10px;
+    transition: 0.8;
+    cursor: pointer;
+}
+
+.details-card {
+    margin-top: 100px;
+    margin-left: 400px;
+    height: 50%;
+    width: 50%;
+    border: 10px solid white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: beige;
+    box-shadow: 5px 10px 25px rgb(220, 173, 234);
+    border-radius: 10px;
+    transition: 0.8;
+    cursor: pointer;
+}
+.allText {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.5rem;
+    align-items: center;
+    /* background-color: cadetblue; */
+}
+
+.iconButton {
+    background-color: #16384c;
+    color: #ffffff;
+    padding: 6px;
+    border-radius: 8px;
 }

@@ -4,32 +4,29 @@ import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 const Episode = ({ episodes }) => {
     return (
-        <SimpleGrid columns={[1, 2, 3]} spacing="50px">
+        <SimpleGrid columns={[1, 2]} spacing="50px">
             {episodes.map((episode) => {
                 return (
                     <div className="card-style" key={episode.id}>
-                        <Text align="center"> episode: {episode.episode}</Text>
-
-                        <Heading
-                            as="h4"
-                            align="center"
-                            size="md"
-                            style={{
-                                backgroundColor: "white",
-                            }}
-                        >
-                            {episode.name}
-                        </Heading>
-                        <div
-                        // style={{
-                        //     backgroundColor: "black",
-                        // }}
-                        >
-                            <Text align="center" fontFamily="bold">
+                        <div className="allText">
+                            <a href>
                                 {" "}
-                                episode: {episode.episode}
-                            </Text>
+                                <Text align="center">
+                                    {" "}
+                                    episode: {episode.episode}
+                                </Text>
+                            </a>
 
+                            <Heading
+                                as="h4"
+                                align="center"
+                                size="md"
+                                style={{
+                                    backgroundColor: "white",
+                                }}
+                            >
+                                {episode.name}
+                            </Heading>
                             <Text align="center" fontFamily="bold">
                                 {" "}
                                 air_date: {episode.air_date}

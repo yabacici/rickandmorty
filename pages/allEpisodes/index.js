@@ -35,18 +35,6 @@ export default function Home(results) {
                     align="center"
                     py={8}
                 >
-                    {/* <Heading
-                        justify="center"
-                        align="center"
-                        as="h1"
-                        fontSize="30px"
-                        mb={8}
-                        style={{
-                            backgroundColor: "gray",
-                        }}
-                    >
-                        Rick and Morty
-                    </Heading> */}
                     <Heading
                         as="h1"
                         size="2x1"
@@ -55,7 +43,7 @@ export default function Home(results) {
                             backgroundColor: "gray",
                         }}
                     >
-                        Rick and Morty
+                        The Rick and Morty
                     </Heading>
 
                     <form
@@ -81,18 +69,18 @@ export default function Home(results) {
                         }}
                     >
                         <Stack maxWidth="350px" width="100%" isInline mb={8}>
-                            <Button>
+                            <Button className="iconButton">
                                 <Link href="/">
                                     <a border="2px solid black">HOMEPAGE</a>
                                 </Link>
                             </Button>
-                            <Button>
+                            <Button className="iconButton">
                                 <Link href="/allCharacters">
                                     <a border="2px solid black">CHARACTERS</a>
                                 </Link>
                             </Button>
                             <Input
-                                placeholder="Search"
+                                placeholder="Search Episode"
                                 value={search}
                                 border="2px solid black"
                                 onChange={(e) => setSearch(e.target.value)}
