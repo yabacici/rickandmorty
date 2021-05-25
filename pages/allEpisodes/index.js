@@ -49,10 +49,13 @@ export default function Home(results) {
                     <form
                         onSubmit={async (event) => {
                             event.preventDefault();
-                            const results = await fetch("/api/SearchEpisodes", {
-                                method: "post",
-                                body: search,
-                            });
+                            const results = await fetch(
+                                "/api/SearchCharacters",
+                                {
+                                    method: "post",
+                                    body: search,
+                                }
+                            );
                             const { episodes, error } = await results.json();
                             if (error) {
                                 toast({
@@ -79,7 +82,7 @@ export default function Home(results) {
                                     <a border="2px solid black">CHARACTERS</a>
                                 </Link>
                             </Button>
-                            <Input
+                            {/* <Input
                                 placeholder="Search Episode"
                                 value={search}
                                 border="2px solid black"
@@ -103,7 +106,7 @@ export default function Home(results) {
                                     setSearch("");
                                     setEpisodes(initialState.episodes);
                                 }}
-                            />
+                            /> */}
                         </Stack>
                     </form>
 
@@ -133,8 +136,13 @@ export async function getStaticProps() {
                         id
                         name
                         episode
+                        characters {
+                            name
+                            image
+                        }
                         air_date
                         created
+                        url
                     }
                 }
             }

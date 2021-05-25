@@ -31,8 +31,8 @@ const Character = ({ characters }) => {
                         <Image
                             className="img-style"
                             src={character.image}
-                            width={300}
-                            height={300}
+                            width={200}
+                            height={200}
                         />
 
                         <Heading
@@ -45,16 +45,14 @@ const Character = ({ characters }) => {
                         >
                             {character.name}
                         </Heading>
-                        <div className="allText">
-                            <Text align="center" fontFamily="bold">
-                                {" "}
-                                Origin: {character.origin.name}
-                            </Text>
-                            <Text align="center" fontFamily="bold">
-                                {" "}
-                                Location: {character.location.name}
-                            </Text>
-                        </div>
+                        <Link
+                            href="/allCharacters/id"
+                            as={`/allCharacters/${character.id}`}
+                        >
+                            <div className="more-info">
+                                Click here for more details
+                            </div>
+                        </Link>
 
                         <FavButton
                             onClick={() => {

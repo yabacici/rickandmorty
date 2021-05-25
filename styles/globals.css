@@ -38,22 +38,16 @@ h1 {
 }
 
 .details-card {
-    height: 100%;
-    width: 100%;
-    border: 10px solid white;
-    display: flex;
-    /* flex-direction: row; */
-    align-items: center;
+    width: 600px;
+    margin: auto;
+    margin-top: 6rem;
+    border: 8px solid white;
     background: beige;
     box-shadow: 5px 10px 25px rgb(220, 173, 234);
     border-radius: 10px;
     transition: 0.8;
     cursor: pointer;
     justify-content: center;
-    flex-wrap: wrap;
-    max-width: 800px;
-    margin-top: 3rem;
-    margin-left: 15rem;
 }
 .allText {
     display: grid;
@@ -68,4 +62,10 @@ h1 {
     color: #ffffff;
     padding: 6px;
     border-radius: 8px;
+}
+
+.more-info {
+    border: 0.5px solid black;
+    font-size: small;
+    font-style: italic;
 }

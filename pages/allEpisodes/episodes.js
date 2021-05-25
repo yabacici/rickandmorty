@@ -4,7 +4,7 @@ import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 const Episode = ({ episodes }) => {
     return (
-        <SimpleGrid columns={[1, 2]} spacing="50px">
+        <SimpleGrid columns={[1, 2]} spacing="100px">
             {episodes.map((episode) => {
                 return (
                     <div className="card-style" key={episode.id}>
@@ -29,9 +29,8 @@ const Episode = ({ episodes }) => {
                             </Heading>
                             <Text align="center" fontFamily="bold">
                                 {" "}
-                                air_date: {episode.air_date}
+                                air date: {episode.air_date}
                             </Text>
-                            {/* <Text align="center"> id: {episode.id}</Text> */}
 
                             <Text align="center" fontFamily="bold">
                                 {" "}

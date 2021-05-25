@@ -116,12 +116,6 @@ export default function Home(results) {
                         </Stack>
                     </form>
                     <Character characters={characters}></Character>
-                    <Link
-                        href="/allCharacters/[id]"
-                        as={`/allCharacters/${characters.id}`}
-                    >
-                        <Character characters={characters}></Character>
-                    </Link>
                 </Box>
             </Flex>
         </div>
