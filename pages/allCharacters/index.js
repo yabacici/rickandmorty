@@ -88,7 +88,7 @@ export default function Home(results) {
                                 </Link>
                             </Button>
                             <Input
-                                placeholder="Search"
+                                placeholder="Search character"
                                 value={search}
                                 border="2px solid black"
                                 onChange={(e) => setSearch(e.target.value)}

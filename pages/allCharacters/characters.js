@@ -34,7 +34,6 @@ const Character = ({ characters }) => {
                             width={200}
                             height={200}
                         />
-
                         <Heading
                             as="h4"
                             align="center"
@@ -53,7 +52,6 @@ const Character = ({ characters }) => {
                                 Click here for more details
                             </div>
                         </Link>
-
                         <FavButton
                             onClick={() => {
                                 handleFavoritesClick(character.name);

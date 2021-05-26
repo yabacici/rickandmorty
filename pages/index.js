@@ -36,7 +36,7 @@ export default function Home() {
                 <div className={styles.grid}>
                     <a href="/allCharacters" className={styles.card}>
                         <h2>Characters&rarr;</h2>
-                        <p>Click and find your favorite characters.</p>
+                        <p>Click and find your favorite characters</p>
                     </a>
 
                     <a href="/allEpisodes" className={styles.card}>

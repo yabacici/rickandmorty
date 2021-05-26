@@ -4,7 +4,7 @@ import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 const Episode = ({ episodes }) => {
     return (
-        <SimpleGrid columns={[1, 2]} spacing="100px">
+        <SimpleGrid columns={[1]} spacing="50px">
             {episodes.map((episode) => {
                 return (
                     <div className="card-style" key={episode.id}>
