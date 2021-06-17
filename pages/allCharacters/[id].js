@@ -14,22 +14,85 @@ import {
     Stack,
     useToast,
 } from "@chakra-ui/react";
+export async function getStaticPaths() {
+    const client = new ApolloClient({
+        uri: "https://rickandmortyapi.com/graphql/",
+        cache: new InMemoryCache(),
+    });
 
-const defaultEndpoint = "https://rickandmortyapi.com/api/character/";
-export async function getServerSideProps({ query }) {
-    const { id } = query;
-    const res = await fetch(`${defaultEndpoint}/${id}`);
-    const data = await res.json();
+    const { data } = await client.query({
+        query: gql`
+            query {
+                characters {
+                    results {
+                        name
+                        id
+                    }
+                }
+            }
+        `,
+    });
+    const paths = data.characters.results.map((character) => {
+        return {
+            params: { id: character.id.toString() },
+        };
+    });
     return {
-        props: {
-            data,
-        },
+        paths: paths,
+        fallback: false,
     };
 }
 
-const CharacterDetail = ({ data }) => {
-    console.log("the data:", data);
-    const { name, image, gender, location, origin, species, status } = data;
+export const getStaticProps = async (context) => {
+    const id = context.params.id;
+    const client = new ApolloClient({
+        uri: "https://rickandmortyapi.com/graphql/",
+        cache: new InMemoryCache(),
+    });
+    const { data } = await client.query({
+        query: gql`
+        query {
+          character(id: ${id}) {
+            name
+            image
+            gender
+            status
+            origin{
+                name
+            }
+            location {
+              name
+            }
+            species
+            episode {
+                id
+                name
+                episode
+            }
+          }
+        }
+      `,
+    });
+
+    return {
+        props: {
+            character: data.character,
+        },
+    };
+};
+
+const CharacterDetail = ({ character }) => {
+    console.log("character details:", character);
+    const {
+        name,
+        image,
+        gender,
+        location,
+        origin,
+        species,
+        status,
+        episode,
+    } = character;
     return (
         <SimpleGrid columns={[1]} spacing="5px" align="center">
             <div className="details-card">
@@ -72,7 +135,7 @@ const CharacterDetail = ({ data }) => {
                     </ul>
                     <ul>
                         <li>
-                            <strong>Originally from: </strong>
+                            <strong>Origins: </strong>
                             {origin?.name}
                         </li>
                     </ul>
@@ -89,3 +152,16 @@ const CharacterDetail = ({ data }) => {
     );
 };
 export default CharacterDetail;
+
+////// WITH REST API///////
+// const defaultEndpoint = "https://rickandmortyapi.com/api/character/";
+// export async function getServerSideProps({ query }) {
+//     const { id } = query;
+//     const res = await fetch(`${defaultEndpoint}/${id}`);
+//     const data = await res.json();
+//     return {
+//         props: {
+//             data,
+//         },
+//     };
+// }

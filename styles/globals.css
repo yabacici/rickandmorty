@@ -36,9 +36,6 @@ h1 {
 .details-card {
     margin: auto;
     border: 10px solid white;
-    /* display: flex;
-    flex-direction: row;
-    align-items: center; */
     background: beige;
     box-shadow: 5px 10px 25px rgb(220, 173, 234);
     border-radius: 10px;
